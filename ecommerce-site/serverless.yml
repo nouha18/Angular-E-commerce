@@ -1,0 +1,18 @@
+org: powerorg
+app: ecommerce-site
+name: aws-dynamodb-starter
+component: aws-dynamodb
+
+inputs:
+  deletionPolicy: delete # allows table to be removed. This property is a safe guard.
+  attributeDefinitions:
+    - AttributeName: attribute1
+      AttributeType: S
+    - AttributeName: attribute2
+      AttributeType: N
+  keySchema:
+    - AttributeName: attribute1
+      KeyType: HASH
+    - AttributeName: attribute2
+      KeyType: RANGE
+  region: us-east-1
