@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from './auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecommerceapp';
+
+  constructor(public authService: AuthService) { }
+  logout() {
+    this.authService.doLogout()
+  }
 }

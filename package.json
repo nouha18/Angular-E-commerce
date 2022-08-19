@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",
+    "@angular/cdk": "^14.1.2",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -25,6 +26,10 @@
     "@techiediaries/ngx-qrcode": "^9.1.0",
     "@zxing/ngx-scanner": "^3.6.2",
     "bootstrap": "^5.2.0",
+    "chart.js": "^3.9.1",
+    "ng2-charts": "^4.0.0",
+    "ng2-search-filter": "^0.5.1",
+    "ngx-cookie-service": "^14.0.1",
     "ngx-qrcode2": "^9.0.0",
     "ngx-spinner": "^14.0.0",
     "rxjs": "~7.5.0",

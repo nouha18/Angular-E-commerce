@@ -1,10 +1,10 @@
 <div class="wrapper">
-  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../../../../assets/img/fabio-mangione.jpg');">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/2.jpg');">
       <div class="filter"></div>
   </div>
   <div class="section profile-content">
       <div class="container">
-          <div class="owner" >
+          <a class="owner" >
                   <ng-container class="avatar">
                       <img src="../assets/img/fisher.jpg" alt="Circle Image" class="img-circle">
                   </ng-container>
@@ -13,10 +13,10 @@
                   <h4 class="title">Noamy marketer<br /></h4>
                   <h6 class="description">Developer</h6>
               </div>
-          </div>
+            </a>
           <div class="bio">
               <div class="text">
-                  <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                  <p>An artist of considerable range, <b>Status: {{userdetails}}</b>— the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
                   <br />
                   <button class="btn-meeting" (click)="toggle()"> Ask for Meeting</button>
               </div>

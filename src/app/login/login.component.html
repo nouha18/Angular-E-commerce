@@ -4,23 +4,24 @@
 
 <div class="content" role="main">
 
-  <h2>Want to join Us?</h2>
-  <p>What Kind of shopping model do you want?</p>
-  <input type="hidden" #selection>
+
 
   <div class="card-form">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <h2>Want to join Us?</h2>
+  <p>What Kind of shopping model do you want?</p>
+  <input type="hidden" #selection>
+  <br/> <br/>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
       <!-- Email input -->
       <div class="form-item">
-        <label class="form-label" for="email">Email address</label>
-        <input type="email" formControlName="email" class="form-control" required/>
-
+        <input type="email" formControlName="email" placeholder="contact@gmail.com" class="form-control" required/>
+        <br/>
       </div>
 
       <!-- Password input -->
       <div class="form-item">
-        <label class="form-label" for="password">Password</label>
-        <input type="password"  formControlName="password" class="form-control" required/>
+      <input type="password"  formControlName="password" placeholder="Password..." class="form-control" required/>
+      <br/>
       </div>
 
       <!-- 2 column grid layout for inline styling -->
@@ -34,7 +35,7 @@
               <!-- Simple link -->
               <a href="#!">Forgot password?</a>
             </div>
-            <button type="button" id="submit" class="form-submit" (click)="login()">LogIn</button>
+            <button type="button" id="submit" class="form-submit" (click)="loginUser()">LogIn</button>
             </div>
 
         </div>
@@ -54,10 +55,9 @@ cssClass="bshadow"></ngx-qrcode>
       <!-- Register buttons -->
       <div class="text-center">
         <p>Not a member? <a routerLink="/register">Register</a></p>
-        <p>or sign up with:<span class="btn-ggle">&nbsp;Google Account</span></p>
+        <p>or sign up with:<span class="btn-ggle">&nbsp;Google </span></p>
         <button type="button" class="btn-google">
-          &#xf1a0;
-          Google
+           Google Account
         </button>
      </div>
     </form>

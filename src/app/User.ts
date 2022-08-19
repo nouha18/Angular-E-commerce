@@ -1,7 +1,7 @@
 export class User {
   _id!: String;
-  name!: String;
-  surname!:String;
+  nom!: String;
+  prenom!:String;
   email!: String;
   phone!:String;
   password!: String;

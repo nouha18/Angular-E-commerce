@@ -2,7 +2,7 @@
   <div class="container">
       <a class="navbar-brand" href="#page-top"><img src="../../assets/img/navbar-logo.svg" alt="..." /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
+           Menu
           <i class="fas fa-bars ms-1"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -10,8 +10,11 @@
               <li class="nav-item"><a class="nav-link"  routerLink="/dash">Services</a></li>
               <li class="nav-item"><a class="nav-link"  href="https://github.com/nouha18">Portfolio</a></li>
               <li class="nav-item"><a class="nav-link" href="https://github.com/nouha18">AboutUs</a></li>
-              <li class="nav-item"><a class="nav-link" routerLink="/profile">Team</a></li>
-              <li class="nav-item"><a class="nav-link"  routerLink="/login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" *ngIf="this.isLoggedIn" [routerLink]="['/profile',userId]">Profile</a></li>
+                <li class="nav-item"><button (click)="logout()" *ngIf="this.isLoggedIn" type="button" class="btn btn-danger">Logout</button></li>
+
+
+              <li class="nav-item"><a class="nav-link"  *ngIf="!this.isLoggedIn" routerLinkActive="active" routerLink="/login">Login</a></li>
           </ul>
       </div>
   </div>
@@ -25,8 +28,10 @@
   </div>
 </header>
 <!-- Services-->
+
 <section class="page-section" id="services">
   <div class="container">
+    <app-ads></app-ads>
       <div class="text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
           <h3 class="section-subheading text-muted">As developers, we aim to satisfy our client.</h3>
