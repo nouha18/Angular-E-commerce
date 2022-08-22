@@ -52,5 +52,5 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.authService.signIn(this.loginForm.value);
     this.showSpinner()
-  }
+  } 
 }

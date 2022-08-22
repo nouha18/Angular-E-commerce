@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signupForm.value, null, 4));
           this.router.navigate(['login']);
       }else{
-        alert('Error Credential!! :-)\n\n');
+        alert('Submission Credential!! :-)\n\n');
 
         this.onReset();
 

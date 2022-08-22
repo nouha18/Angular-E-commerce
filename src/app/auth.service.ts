@@ -13,8 +13,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint: string = 'http://localhost:3001/api/v2.5';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  endpoint: string = 'https://data.mongodb-api.com/app/data-ulcym/endpoint/data/v1/action';
+  headers = new HttpHeaders().set('Content-Type', 'application/json')
+  .set("Access-Control-Request-Headers",'*')
+  .set('auth-key',"62ab9190127917218f56b820");
+
   cookieValue:string="";
   currentUser: User={  _id:'',
     nom: '',
@@ -22,16 +25,19 @@ export class AuthService {
     email: '',
     phone:'',
     password: ''};
+    //Maurice15@gmail.com
+
+    //Maurice125
   constructor(private http: HttpClient,private cooService:CookieService, public router: Router) { }
 
   signUp(user: User): Observable<any> {
-    let api = `${this.endpoint}/adduser`;
-    return this.http.post(api, user).pipe(catchError(this.handleError));
+    let api = `${this.endpoint}/insertOne`;
+    return this.http.post(api, {dataSource: "ClusterReact",database: "nodejsApi",collection: "nodejsApi",document:user}).pipe(catchError(this.handleError));
   }
 
   signIn(user: User) {
     return this.http
-      .post<any>(`${this.endpoint}/auth`, user)
+      .post<any>(`${this.endpoint}/auth`, {dataSource: "ClusterReact",database: "nodejsApi",collection: "nodejsApi",document:user})
       .subscribe((res: any) => {
           localStorage.setItem('access_token', res.data.accesstoken);
           this.cooService.set('cookie-token',res.data.accesstoken);
