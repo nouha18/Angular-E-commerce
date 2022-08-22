@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
-## Development server deployed onHEroku![login-api](https://user-images.githubusercontent.com/43494970/185915084-3ba63034-3612-452f-9c92-3e739cf8b372.png)
+## Development server deployed on Heroku!
 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
