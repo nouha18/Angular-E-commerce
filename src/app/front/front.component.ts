@@ -11,6 +11,7 @@ export class FrontComponent implements OnInit {
   cookieValue: string ="";
   tokens: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmNiYzMyNDUwNzc4NzJhM2JhMDI0ZCIsImlhdCI6MTY2MDczMTQ0NiwiZXhwIjoxNjYwODE3ODQ2fQ.xPfaoBrZ_eDXiximLB8dptCuvhotGE-djzO4ZlMGenk';
   userId: string = '';
+  userName:string='';
   constructor(public authService: AuthService,private cooService: CookieService) {
   }
 
@@ -25,9 +26,12 @@ export class FrontComponent implements OnInit {
     console.log(this.cookieValue);
 
     if(this.authService.getToken())
-    {this.isLoggedIn=true;
+    {
+      this.isLoggedIn=true;
       console.log('user logged',this.cooService.get('cookie-token'))
-   }
+      this.userName= this.cooService.get('cookie-token');
+      this.userId = this.cooService.get('cookie-id');
+    }
 
   }
 

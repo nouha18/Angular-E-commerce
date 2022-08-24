@@ -16,8 +16,8 @@ export class AuthService {
   endpoint: string = 'https://data.mongodb-api.com/app/data-ulcym/endpoint/data/v1/action';
   headers = new HttpHeaders().set('Content-Type', 'application/json')
   .set("Access-Control-Request-Headers",'*')
-  .set('auth-key',"62ab9190127917218f56b820");
-
+  .set('auth-key',"62ab9190127917218f56b820")
+  .set('Accept',"application/json");
   cookieValue:string="";
   currentUser: User={  _id:'',
     nom: '',
@@ -37,21 +37,20 @@ export class AuthService {
 
   signIn(user: User) {
     return this.http
-      .post<any>(`${this.endpoint}/auth`, {dataSource: "ClusterReact",database: "nodejsApi",collection: "nodejsApi",document:user})
+      .post<User>(`${this.endpoint}/findOne`, {dataSource: "ClusterReact",database: "nodejsApi",collection: "nodejsApi", filter: { "email": user.email}})
       .subscribe((res: any) => {
-          localStorage.setItem('access_token', res.data.accesstoken);
-          this.cooService.set('cookie-token',res.data.accesstoken);
+        console.log(res.document._id);
+          localStorage.setItem('access_token', res.document.email);
+          this.cooService.set('cookie-token',res.document.email);
+          this.cooService.set('cookie-id',res.document._id);
           this.cookieValue= this.cooService.get('cookie-token');
-          console.log(this.cookieValue);
-          alert(res.message);
-          console.log(res);
-        this.getUserProfile(res._id).subscribe((res) => {
-          this.currentUser = res.msg;
-          console.log('id of user ',res);
+          alert("welcome Dear: "+res.document.nom);
+          this.router.navigate(['/' +  this.currentUser._id]);
 
-          localStorage.setItem('iduser', res.msg._id);
-          this.router.navigate(['profile/' + res.msg._id]);
-        });
+          console.log(JSON.stringify(res.document));
+        this.getUserProfile(res.document._id).subscribe((res) => {
+          this.currentUser = res.document;
+             });
 
       });
   }
@@ -86,6 +85,7 @@ export class AuthService {
 
   getUserProfile(id: any): Observable<any> {
     let api = `${this.endpoint}/profile/${id}`;
+    console.log(api);
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res) => {
         return res || {};
